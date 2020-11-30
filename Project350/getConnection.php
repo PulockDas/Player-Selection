@@ -25,7 +25,6 @@
 			else{
 				echo "Connection Successfull!!!";
 			}
-
 			return $conn;
 		}
 	}

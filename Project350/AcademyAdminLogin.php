@@ -13,6 +13,7 @@
 			$row=$result->fetch_assoc();
 			if($row['ACADEMY_ID']==$academyId && $row['PASSWORD']==$academyAdmin_password){
 				echo "Login successfull! WELCOME ".$row["ACADEMY_NAME"];
+				header('Location: Academy_Home_Page.html');
 			}else{
 				echo "failed!";
 			}

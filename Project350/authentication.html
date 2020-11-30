@@ -5,96 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academy Admin Login</title>
-    <style>
-        body {
-            background-color: rgb(81, 194, 216);
-        }
-
-        .musfiq {
-            margin-left: 584px;
-            margin-right: 573px;
-            margin-bottom: -206px;
-        }
-
-        .shakib {
-            margin-left: 712px;
-            margin-bottom: -188px;
-        }
-
-        .tamim {
-            margin-left: 838px;
-            margin-bottom: -169px;
-            margin-right: 573px;
-        }
-
-        .Login_form {
-            font-family: 'Times New Roman', Times, serif;
-            margin-top: 200px;
-            margin-left: 584px;
-            margin-right: 573px;
-        }
-
-        .Input_academyId,
-        .Input_password {
-            backface-visibility: inherit;
-            background-color: rgb(238, 232, 232);
-            color: black;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-right: 200px;
-            padding-left: 0px;
-            border-radius: 5px;
-            margin: 8px 1;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        .Login_button {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #142710;
-            border-radius: 5px;
-            color: white;
-            padding: 10px 69px;
-            margin: 10px 0px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .Login_button:hover {
-            color: yellowgreen;
-        }
-
-        .Login_button:active {
-            background-color: red;
-        }
-
-        .register_link{
-            color: white;
-            background-color: #142710;
-            margin-top: 6px;
-            margin-left: 0px;
-            border-radius: 5px;
-            padding-top: 7.5px;
-            padding-bottom: 10px;
-            padding-right: 40.5px;
-            padding-left: 39px;
-        }
-
-        .register_link:hover {
-            color: yellowgreen;
-        }
-
-        h3 {
-            margin-bottom: 0px;
-        }
-        .side_image1{
-            margin-left: 545px;
-        }
-        .side_image2{
-            margin-right: 450px;
-        }
-    </style>
+    <link rel="stylesheet" href="LoginRegistrationPageStyles.css">
 </head>
 
 <body>
@@ -106,7 +17,8 @@
                 <h3>Enter your academy id</h3>
             </strong></label>
         <div>
-            <input class="Input_academyId" type="text" placeholder="academy id" name="academy_id" id="academy_id" required>
+            <input class="Input_academyId" type="text" placeholder="academy id" name="academy_id" id="academy_id"
+                required>
         </div>
         <label for="password" style="color: black;"><strong>
                 <h3>Enter your password</h3>
@@ -115,7 +27,7 @@
             <input class="Input_password" type="password" placeholder="password" name="password" id="password" required>
         </div>
         <button class="Login_button" type="submit"><b>LOGIN</b></button>
-        <b><a class = "register_link" href="AcademyAdminRegistrationPage.html">Register Here</a></b>
+        <b><a class="register_link" href="AcademyAdminRegistrationPage.html">Register Here</a></b>
     </form>
     <img src="images/side_image1.png" class="side_image1">
     <img src="images/side_image2.png" class="side_image2">
