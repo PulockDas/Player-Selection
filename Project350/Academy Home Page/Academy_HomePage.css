@@ -24,7 +24,7 @@ h1{
 
 .sliderclass{
   /* overflow: hidden; */
-  height: 100%;
+  height: 100vh;
   width: 1200px;
   margin-left: 350px;
   margin-right: 100px;
@@ -55,7 +55,7 @@ h1{
 
 .slideimages{
   width: 3600px;
-  height: 500px;
+  height: 100vh;
   margin: 0 0 0 -2400px;
   position: relative;
 
