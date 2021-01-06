@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+
+hr{
+    margin-bottom: 5%;
+
+}
+
+.card-img-top{
+    width: 100px;
+    height: 100px;
+
+    margin-left: 28%;
+}
+
+.details{
+    color: green;
+    margin-bottom: 5%;
+}
+
