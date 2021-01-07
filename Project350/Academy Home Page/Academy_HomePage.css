@@ -22,52 +22,13 @@ h1{
   margin-top: 100px;
 }
 
-.sliderclass{
-  /* overflow: hidden; */
-  height: 100vh;
-  width: 1200px;
-  margin-left: 350px;
-  margin-right: 100px;
-  margin-top: 20px;
 
-  /* background-color: purple; */
-
-  /* display: flex;
-  justify-content: center;
-  align-content: center; */
-
+.w-100 {
+  width: 59% !important;
+  margin-left: 20%;
+  margin-top: 2%;
 }
 
-
-@-webkit-keyframes slide_animation{
-  0%  {left:0px;}
-  10%  {left:0px;}
-  20%  {left:1200px;}
-  30%  {left:1200px;}
-  40%  {left:2400px;}
-  50%  {left:2400px;}
-  60%  {left:1200px;}
-  70%  {left:1200px;}
-  80%  {left:0px;}
-  90%  {left:0px;}
-  100%  {left:0px;}
-}
-
-.slideimages{
-  width: 3600px;
-  height: 100vh;
-  margin: 0 0 0 -2400px;
-  position: relative;
-
-  -webkit-animation-name: slide_animation;
-  -webkit-animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-play-state: running;
-}
-
-.imgcontainer{
-  height: 500px;
-  width: 1200px;
-  position: relative;
-  float: left;
+img{
+  height: 420px;
 }
