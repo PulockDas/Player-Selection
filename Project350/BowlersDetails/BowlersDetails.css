@@ -1,5 +1,6 @@
 h1{
     text-align: center;
+    color: aliceblue;
 }
 
 hr{
@@ -20,7 +21,7 @@ hr{
 }
 
 body{
-    background-color:#2c6ed5;;
+    background-color: #212529 !important;
 }
 
 .row{

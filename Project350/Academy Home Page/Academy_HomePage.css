@@ -1,7 +1,8 @@
 body{
   padding: 0;
   margin: 0;
-  background-color: #a482a4;
+  /* background-color: #a482a4; */
+  background-color: #212529 !important;
 }
 
 h1{
@@ -9,6 +10,8 @@ h1{
 
   justify-content: center;
   align-content: center;
+
+  color: aliceblue;
 }
 
 .box{
