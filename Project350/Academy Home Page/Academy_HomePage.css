@@ -32,3 +32,24 @@ h1{
 img{
   height: 420px;
 }
+
+.me-2 {
+  margin-right: 0.5rem !important;
+}
+
+.d-flex{
+  justify-content: center;
+}
+
+.musfiq{
+  width: 50px;
+  height: 50px;
+}
+.shakib{
+  width: 50px;
+  height: 50px;
+}
+.tamim{
+  width: 50px;
+  height: 50px;
+}
