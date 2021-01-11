@@ -39,31 +39,22 @@
                     <h2 class="title">Player Registration Info</h2>
                     <form method="POST">
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="NAME" name="name">
+                            <input required="true" class="input--style-1" type="text" placeholder="NAME" name="name">
                         </div>
 
 
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" type="text" placeholder="BIRTHDATE" name="birthday">
+                                    <input required="true" class="input--style-1 js-datepicker" type="text" placeholder="BIRTHDATE" name="birthday">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
 
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender">
-                                            <option disabled="disabled" selected="selected">GENDER</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option>Other</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input required="true" class="input--style-1" type="text" placeholder="PLAYER-ID" name="player_id">
                         </div>
 
                         
@@ -71,13 +62,13 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="email" placeholder="E-MAIL" name="name">
+                                    <input required="true" class="input--style-1" type="email" placeholder="E-MAIL" name="name">
                                 </div>
                             </div>
 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="PHONE" name="name">
+                                    <input required="true" class="input--style-1" type="text" placeholder="PHONE" name="name">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +76,7 @@
                         
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="class">
+                                <select required="true" name="class">
                                     <option disabled="disabled" selected="selected">PLAYING ROLE</option>
                                     <option>Batsman</option>
                                     <option>Bowler</option>
@@ -99,16 +90,31 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="number" step="0.1" placeholder="HEIGHT" name="res_code">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select required="true" name="gender">
+                                            <option disabled="disabled" selected="selected">BATTING STYLE</option>
+                                            <option>Right Handed</option>
+                                            <option>Left Handed</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        
-                        <div class="row row-space">
+
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="number" step="0.1" placeholder="WEIGHT" name="res_code">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select required="true" name="gender">
+                                            <option disabled="disabled" selected="selected">BOWLING STYLE</option>
+                                            <option>Right Handed Seam</option>
+                                            <option>Right Handed Spin (Arthodox)</option>
+                                            <option>Right Handed Spin (Leg Spinner)</option>
+                                            <option>Left Handed Seam</option>
+                                            <option>Left Handed Seam (Arthodox)</option>
+                                            <option>Left Handed Spin (Leg Spinner)</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

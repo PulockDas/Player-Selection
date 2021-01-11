@@ -45,18 +45,17 @@
                     <h2 class="title">Add Any Batsman's Record</h2>
 
                     <form method="POST">
-
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="BATSMAN ID" name="id">
+                                    <input required="true" class="input--style-1" type="text" placeholder="BATSMAN ID" name="id">
                                 </div>
                             </div>
 
 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="BATSMAN NAME" name="name">
+                                    <input required="true" class="input--style-1" type="text" placeholder="BATSMAN NAME" name="name">
                                 </div>
                             </div>
 
@@ -67,7 +66,7 @@
 
                             <div class="col-3">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="number" placeholder="MATCH NUMBER"
+                                    <input required="true" class="input--style-1" type="number" placeholder="MATCH NUMBER"
                                         name="match_number">
                                     <i class="input-icon js-btn-calendar"></i>
                                 </div>
@@ -75,7 +74,7 @@
 
                             <div class="col-3">
                                 <div class="input-group">
-                                    <input class="input--style-1 js-datepicker" type="text" placeholder="MATCH DATE"
+                                    <input required="true" class="input--style-1 js-datepicker" type="text" placeholder="MATCH DATE"
                                         name="birthday">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
@@ -84,7 +83,7 @@
                             <div class="col-3">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender">
+                                        <select required="true" name="gender">
                                             <option disabled="disabled" selected="selected">Opposition</option>
                                             <option>Maraz XI</option>
                                             <option>Pulock XI</option>
@@ -100,13 +99,13 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="number" step="0.1" placeholder="RUN SCORED"
+                                    <input required="true" class="input--style-1" type="number" step="0.1" placeholder="RUN SCORED"
                                         name="res_code">
                                 </div>
                             </div>
 
                             <div class="col-2 form-check my-2">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input required="true" type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">NOT OUT</label>
                             </div>
 
@@ -116,10 +115,24 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-1" type="number" step="0.1" placeholder="BOWL FACED"
+                                    <input required="true" class="input--style-1" type="number" step="0.1" placeholder="BOWL FACED"
                                         name="res_code">
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- If player is also a bowler -->
+
+                        <b>If the player bowls</b>
+
+                        <div class="mb-3">
+                            <input required ="true" type="number" class="form-control" id="over_bowled" placeholder="Total Over Bowled">
+                        </div>
+                        <div class="mb-3">
+                            <input required ="true" type="number" class="form-control" id="run_consumed" placeholder="Total Runs Consumed">
+                        </div>
+                        <div class="mb-3">
+                            <input required ="true" type="number" class="form-control" id="wickets" placeholder="Number of Wickets">
                         </div>
 
 
