@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Academy</title>
+
+    <link rel="stylesheet" href="/LoginRegistrationPageStyles.css">
+</head>
+
+<body>
+    <img src="/musfiq.png" class="musfiq">
+    <img src="/shakib.png" class="shakib">
+    <img src="/tamim.png" class="tamim">
+    <form class="registration_form" action="/auth/register" method="POST">
+        <label for="academy_name"><strong>
+                <h3>Enter your academy name</h3>
+            </strong></label>
+        <div>
+            <input class="Input_academy_name" type="text" placeholder="academy name" name="acName"
+                id="academy_name" required>
+        </div>
+
+
+        <label for="academy_id"><strong>
+                <h3>Enter your academy id</h3>
+            </strong></label>
+        <div>
+            <input class="Input_academyId" type="text" placeholder="academy id" name="acId" id="academy_id"
+                required>
+        </div>
+
+
+        <label for="academy_email"><strong>
+                <h3>Enter your academy email</h3>
+            </strong></label>
+        <div>
+            <input class="Input_academyEmail" type="email" placeholder="academy email" name="acEmail"
+                id="academy_email" required>
+        </div>
+
+
+        <label for="password"><strong>
+                <h3>Enter your password</h3>
+            </strong></label>
+        <div>
+            <input class="Input_password" type="password" placeholder="password" name="acPassword" id="password" required>
+        </div>
+
+        <label for="Repassword"><strong>
+                <h3>Re-Enter your password</h3>
+            </strong></label>
+        <div>
+            <input class="Input_password" type="password" placeholder="password" name="RePassword" id="password" required>
+        </div>
+
+        <button class="Register_button" type="submit"><b>REGISTER</b></button>
+        <b><a class="login_link" href="/login">Login Here</a></b>
+    </form>
+
+    {{#if message}}
+    <h4 align="center">{{message}}</h4>
+    {{/if}}
+
+    <img src="/side_image1.png" class="side_image1">
+    <img src="/side_image2.png" class="side_image2">
+
+</body>
+
+</html>
