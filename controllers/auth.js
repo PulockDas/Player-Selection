@@ -1,6 +1,11 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bycrypt = require('bcryptjs');
+const emailValidator = require('deep-email-validator');
+
+async function isEmailValid(email) {
+    return await emailValidator.validate(email);
+}
 
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
@@ -12,9 +17,10 @@ const db = mysql.createConnection({
 exports.register = (req, res) => {
 
     const { acName, acId, acEmail, acPassword, RePassword } = req.body;
-    db.query('SELECT id FROM valid_academy WHERE id = ?', [acId],async (err,results)=>{
+    const { valid, reason, validators } = isEmailValid(acEmail);
+    db.query('SELECT id FROM valid_academy WHERE id = ?', [acId], async (err, results) => {
         if (err) {
-           console.log(err.message);
+            console.log(err.message);
         }
 
         else if (results.length <= 0) {
@@ -22,6 +28,14 @@ exports.register = (req, res) => {
                 message: "the academy id you gave was invalid"
             });
         }
+
+
+        else if (!valid) {
+            return res.render('register', {
+                message: "the email you gave was not valid!"
+            });
+        }
+
         else if (acPassword != RePassword) {
             return res.render('register', {
                 message: "your passwords didn't match"
@@ -57,7 +71,7 @@ exports.login = async (req, res) => {
 
         db.query('SELECT * FROM academy_details WHERE ACADEMY_ID = ?', [id], async (err, results) => {
             console.log(results);
-            if (results.length==0 || !(await bycrypt.compare(password, results[0].PASSWORD))) {
+            if (results.length == 0 || !(await bycrypt.compare(password, results[0].PASSWORD))) {
                 res.status(401).render('login', {
                     message: "id or password is incorrect"
                 })
