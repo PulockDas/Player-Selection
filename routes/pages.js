@@ -37,4 +37,12 @@ router.get('/add_record',(req,res) =>{
     res.render("add_record");
 });
 
+router.get('/add_batting_record',(req,res) =>{
+    res.render("add_batting_record");
+});
+
+router.get('/add_bowling_record',(req,res) =>{
+    res.render("add_bowling_record");
+});
+
 module.exports = router;

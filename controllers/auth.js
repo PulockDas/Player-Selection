@@ -2,6 +2,8 @@ const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bycrypt = require('bcryptjs');
 const emailValidator = require('deep-email-validator');
+const alert = require('alert');
+
 
 async function isEmailValid(email) {
     return await emailValidator.validate(email);
@@ -70,11 +72,12 @@ exports.login = async (req, res) => {
         console.log(req.body);
 
         db.query('SELECT * FROM academy_details WHERE ACADEMY_ID = ?', [id], async (err, results) => {
-            console.log(results);
+            //console.log(results);
             if (results.length == 0 || !(await bycrypt.compare(password, results[0].PASSWORD))) {
                 res.status(401).render('login', {
                     message: "id or password is incorrect"
                 })
+
             }
             else {
                 const id = results[0].ACADEMY_ID;
@@ -98,5 +101,101 @@ exports.login = async (req, res) => {
         });
     } catch (err) {
         console.log(err.message);
+    }
+}
+
+exports.add_player = async (req, res) => {
+    try {
+        const { AcademyId, Name, BirthDate, PlayerId, Email, PlayersContact, PlayersGardiansContact,
+            PlayingRole, BattingStyle, BowlingStyle, Image } = req.body;
+
+        console.log(req.body);
+
+        db.query('INSERT INTO players_details SET ?', {
+            AcademyId: AcademyId, Name: Name,
+            BirthDate: BirthDate, PlayerId: PlayerId, Email: Email,
+            PlayersContact: PlayersContact, PlayersGardiansContact: PlayersGardiansContact,
+            PlayingRole: PlayingRole, BattingStyle: BattingStyle,
+            BowlingStyle: BowlingStyle, Image: Image
+        }, (err, results) => {
+
+            if (err) {
+                console.log(err.message);
+            }
+            else {
+                return res.render('add_player', {
+                    message: "succesfully registered!"
+                });
+            }
+
+        });
+
+    } catch (error) {
+        console.log(err.message);
+    }
+}
+
+
+
+exports.add_batting_record = async (req, res) => {
+    try {
+        const { player_id, run_scored, bowl_faced, out_status,date } = req.body;
+
+        console.log(req.body);
+
+        db.query('INSERT INTO batsman_record SET ?', {
+            player_id: player_id,
+            run_scored: Number(run_scored),
+            bowl_faced: Number(bowl_faced),
+            out_status: out_status,
+            strike_rate: Number(run_scored)/Number(bowl_faced) * 100,
+            id: player_id+date
+        }, (err, results) => {
+
+            if (err) {
+                console.log(err.message);
+            }
+            else {
+                return res.render('add_batting_record', {
+                    message: "succesfully sumitted!"
+                });
+            }
+
+        });
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+
+exports.add_bowling_record = async (req, res) => {
+    try {
+        const { player_id, wicket, over_bowled, run_cost,date } = req.body;
+
+        console.log(req.body);
+
+        db.query('INSERT INTO bowler_record SET ?', {
+            player_id: player_id,
+            wicket:wicket,
+            overs: Number(over_bowled),
+            run:Number(run_cost),
+            economy:Number(run_cost)/Number(over_bowled),
+            id: player_id+date
+        }, (err, results) => {
+
+            if (err) {
+                console.log(err.message);
+            }
+            else {
+                return res.render('add_bowling_record', {
+                    message: "succesfully sumitted!"
+                });
+            }
+
+        });
+
+    } catch (error) {
+        console.log(error.message);
     }
 }

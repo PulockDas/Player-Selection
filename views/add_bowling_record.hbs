@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>add your css,js file to public folder and copy your html code Here</h4>
+
+    <form action="/auth/add_bowling_record" method="POST">
+        <div>
+            <input id="player_id" name="player_id" placeholder="PLAYER_ID" required>
+        </div>
+        <div>
+            <input id="wicket" type="number" name="wicket" placeholder="TOTAL_WICKET" required>
+        </div>
+        <div>
+            <input id="over_bowled" type="number" name="over_bowled" placeholder="TOTAL_OVER" required>
+        </div>
+        <div>
+            <input id="run_cost" name="run_cost" placeholder="TOTAL_RUN_COSTS" required>
+        </div>
+        <div>
+            <input id="date" type="date" name="date" placeholder="DATE" required>
+        </div>
+        <button type="submit">SUBMIT</button>
+    </form>
+    {{#if message}}
+        <h4 align="center">{{message}}</h4>
+    {{/if}}
+</body>
+</html>

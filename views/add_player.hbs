@@ -20,14 +20,17 @@
         rel="stylesheet">
 
     <!-- Vendor CSS-->
-    <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="/css/main.css" rel="stylesheet" media="all">
+    <link href="/cssFiles/main.css" rel="stylesheet" media="all">
 </head>
 
 <body>
+    {{#if message}}
+    <h4 align="center">{{message}}</h4>
+    {{/if}}
     <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
         <div class="wrapper wrapper--w680">
             <div class="card card-1">
@@ -38,9 +41,15 @@
 
 
                     <h2 class="title">Player Registration Info</h2>
-                    <form method="POST">
+                    <form action="/auth/add_player" method="POST">
+
                         <div class="input-group">
-                            <input required="true" class="input--style-1" type="text" placeholder="NAME" name="name">
+                            <input required="true" class="input--style-1" type="text" placeholder="ACADEMY ID"
+                                name="AcademyId">
+                        </div>
+
+                        <div class="input-group">
+                            <input required="true" class="input--style-1" type="text" placeholder="NAME" name="Name">
                         </div>
 
 
@@ -48,7 +57,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <input required="true" class="input--style-1 js-datepicker" type="text"
-                                        placeholder="BIRTHDATE" name="birthday">
+                                        placeholder="BIRTHDATE(yyyy-mm-dd)" name="BirthDate">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
@@ -57,7 +66,7 @@
 
                         <div class="input-group">
                             <input required="true" class="input--style-1" type="text" placeholder="PLAYER-ID"
-                                name="player_id">
+                                name="PlayerId">
                         </div>
 
 
@@ -66,14 +75,20 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <input required="true" class="input--style-1" type="email" placeholder="E-MAIL"
-                                        name="name">
+                                        name="Email">
                                 </div>
                             </div>
 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input required="true" class="input--style-1" type="text" placeholder="PHONE"
-                                        name="name">
+                                    <input required="true" class="input--style-1" type="text"
+                                        placeholder="PLAYERS CONTACT" name="PlayersContact">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input required="true" class="input--style-1" type="text"
+                                        placeholder="PLAYERS GARDIANS CONTACT" name="PlayersGardiansContact">
                                 </div>
                             </div>
                         </div>
@@ -81,11 +96,13 @@
 
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select required="true" name="class">
+                                <select required="true" name="PlayingRole">
                                     <option disabled="disabled" selected="selected">PLAYING ROLE</option>
                                     <option>Batsman</option>
                                     <option>Bowler</option>
                                     <option>All-Rounder</option>
+                                    <option>Wicket Keeper</option>
+                                    <option>Wicket Keeper Batsman</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
@@ -96,7 +113,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select required="true" name="gender">
+                                        <select required="true" name="BattingStyle">
                                             <option disabled="disabled" selected="selected">BATTING STYLE</option>
                                             <option>Right Handed</option>
                                             <option>Left Handed</option>
@@ -109,7 +126,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select required="true" name="gender">
+                                        <select required="true" name="BowlingStyle">
                                             <option disabled="disabled" selected="selected">BOWLING STYLE</option>
                                             <option>Right Handed Seam</option>
                                             <option>Right Handed Spin (Arthodox)</option>
@@ -127,7 +144,7 @@
                         <!-- Image Upload -->
 
                         <label class="form-label my-10" for="customFile">Choose a picture</label>
-                        <input type="file" class="form-control" id="customFile" />
+                        <input type="file" class="form-control" id="customFile" accept="image/*" / name="Image">
 
 
                         <div class="p-t-20">
@@ -140,16 +157,16 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
-    <script src="/vendor/select2/select2.min.js"></script>
-    <script src="/vendor/datepicker/moment.min.js"></script>
-    <script src="/vendor/datepicker/daterangepicker.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="/js/global.js"></script>
+    <script src="/global.js"></script>
 
-</body>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
 <!-- end document-->
