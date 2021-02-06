@@ -1,0 +1,81 @@
+{
+  "name": "alert",
+  "description": "Cross-platform, isomorphic alert, for Node and browser (previously alert-node)",
+  "version": "5.0.10",
+  "author": {
+    "email": "zac@zacanger.com",
+    "name": "Zac Anger",
+    "url": "http://zacanger.com"
+  },
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/zacanger"
+  },
+  "license": "LGPL-3.0",
+  "main": "index.js",
+  "bin": {
+    "alert": "cli.js"
+  },
+  "scripts": {
+    "preversion": "npm t",
+    "test": "npm run test:lint",
+    "test:lint": "eslint -c .eslintrc.json *.js"
+  },
+  "homepage": "https://github.com/zacanger/alert#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zacanger/alert.git"
+  },
+  "bugs": "https://github.com/zacanger/alert/issues",
+  "keywords": [
+    "alert",
+    "cli",
+    "console",
+    "cross-platform",
+    "cscript",
+    "dialog",
+    "isomorphic",
+    "kdialog",
+    "linux",
+    "mac",
+    "msg",
+    "node",
+    "notifications",
+    "notify",
+    "notify-send",
+    "osascript",
+    "whiptail",
+    "window.alert",
+    "windows",
+    "yad",
+    "zenity"
+  ],
+  "dependencies": {
+    "is-program-installed": "2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "7.17.0",
+    "eslint-plugin-zacanger": "2.2.3",
+    "husky": "4.3.6",
+    "lint-staged": "10.5.3",
+    "prettier": "2.2.1",
+    "sortpack": "2.1.11"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "sortpack"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "typings": "alert.d.ts"
+}
