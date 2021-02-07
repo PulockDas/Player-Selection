@@ -1,0 +1,115 @@
+body {
+    width: 100vw;
+    height: auto;
+    background-color: rgb(81, 194, 216);
+    box-sizing: border-box;
+}
+
+.musfiq {
+    width: 6.5vw;
+    height: auto;
+
+    margin-top: 5vh;
+    margin-left: 37vw;
+}
+
+.shakib {
+    width: 6.5vw;
+    height: auto;
+
+    margin-left: 1vw;
+}
+
+.tamim {
+    width: 6.5vw;
+    height: auto;
+
+    margin-left: 1vw;
+}
+
+.Login_form,
+.registration_form {
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 2vh;
+    margin-left: 36vw;
+    margin-right: 30vw;
+}
+
+.Input_academyId,
+.Input_password,
+.Input_academy_name,
+.Input_academyEmail {
+    font-size: 1vw;
+    border-radius: 5px;
+    width: 25vw;
+    height: 4vh;
+    backface-visibility: inherit;
+    background-color: rgb(238, 232, 232);
+    color: black;
+    border: 0.2vw solid rgb(173, 205, 226);
+    box-sizing: border-box;
+}
+
+.Login_button,
+.Register_button {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1vw;
+    background-color: #142710;
+    border-radius: 5px;
+    color: white;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-left: .5vw;
+    margin-top: 1vh;
+    
+    margin-right: 1vw;
+    margin-bottom: 1vh;
+    border: none;
+    cursor: pointer;
+}
+
+.Login_button:hover,
+.Register_button:hover {
+    color: yellowgreen;
+}
+
+.Login_button:active,
+.Register_button:active {
+    background-color: red;
+}
+
+.register_link,
+.login_link {
+    font-size: 1vw;
+    color: white;
+    background-color: #142710;
+    border-radius: 5px;
+    padding-left: 2.8vw;
+    padding-right: 2.8vw;
+    padding-top: 1.1vh;
+    padding-bottom: 1.1vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    
+}
+
+h3 {
+    margin-bottom: 0px;
+    font-size: 1.5vw;
+}
+
+.side_image1 {
+    box-sizing: border-box;
+    width: 13vw;
+    height: auto;
+    margin-left: 35vw;
+}
+
+.side_image2 {
+    box-sizing: border-box;
+    width: 13vw;
+    height: auto;
+
+}

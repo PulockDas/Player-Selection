@@ -16,10 +16,12 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-exports.register = (req, res) => {
+exports.register = async (req, res) => {
 
     const { acName, acId, acEmail, acPassword, RePassword } = req.body;
-    const { valid, reason, validators } = isEmailValid(acEmail);
+    const { valid, reason, validators } = await isEmailValid(acEmail);
+    //console.log(isEmailValid(acEmail));
+    console.log(valid,reason,validators);
     db.query('SELECT id FROM valid_academy WHERE id = ?', [acId], async (err, results) => {
         if (err) {
             console.log(err.message);
@@ -139,12 +141,19 @@ exports.add_player = async (req, res) => {
 
 exports.add_batting_record = async (req, res) => {
     try {
-        const { player_id, run_scored, bowl_faced, out_status,date } = req.body;
+        const { player_id, run_scored, match_type,dots,ones,twos,threes,fours,sixes,bowl_faced, out_status,date } = req.body;
 
         console.log(req.body);
 
         db.query('INSERT INTO batsman_record SET ?', {
             player_id: player_id,
+            match_type:match_type,
+            dots:dots,
+            ones:ones,
+            twos:twos,
+            threes:threes,
+            fours:fours,
+            sixes:sixes,
             run_scored: Number(run_scored),
             bowl_faced: Number(bowl_faced),
             out_status: out_status,
@@ -171,12 +180,14 @@ exports.add_batting_record = async (req, res) => {
 
 exports.add_bowling_record = async (req, res) => {
     try {
-        const { player_id, wicket, over_bowled, run_cost,date } = req.body;
+        const { player_id,match_type,maiden,wicket, over_bowled, run_cost,date } = req.body;
 
         console.log(req.body);
 
         db.query('INSERT INTO bowler_record SET ?', {
             player_id: player_id,
+            match_type:match_type,
+            maiden:maiden,
             wicket:wicket,
             overs: Number(over_bowled),
             run:Number(run_cost),

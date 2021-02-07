@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h4>add your css,js file to public folder and copy your html code Here</h4>
 
     <form action="/auth/add_batting_record" method="POST">
         <div>
             <input id="player_id" name="player_id" placeholder="PLAYER_ID" required>
+        </div>
+        <div>
+            <input id="match_type" type="text" name="match_type" placeholder="Match_Type" required>
+        </div>
+        <div>
+            <input id="dots" type="number" name="dots" placeholder="Dots" required>
+        </div>
+        <div>
+            <input id="ones" type="number" name="ones" placeholder="Ones" required>
+        </div>
+        <div>
+            <input id="twos" type="number" name="twos" placeholder="Twos" required>
+        </div>
+        <div>
+            <input id="threes" type="number" name="threes" placeholder="Threes" required>
+        </div>
+        <div>
+            <input id="fours" type="number" name="fours" placeholder="Fours" required>
+        </div>
+        <div>
+            <input id="sixes" type="number" name="sixes" placeholder="sixes" required>
         </div>
         <div>
             <input id="run_scored" type="number" name="run_scored" placeholder="TOTAL_RUN" required>
@@ -24,10 +47,12 @@
         <div>
             <input id="date" type="date" name="date" placeholder="DATE" required>
         </div>
+
         <button type="submit">SUBMIT</button>
     </form>
     {{#if message}}
-        <h4 align="center">{{message}}</h4>
+    <h4 align="center">{{message}}</h4>
     {{/if}}
 </body>
+
 </html>
