@@ -30,7 +30,7 @@
 
 
 <body>
-    <h1>Add Players' records</h1>
+    <h1>Add Batsmen records</h1>
 
 
 
@@ -42,100 +42,123 @@
 
                     <!-- Here is the batsman part -->
 
-                    <h2 class="title">Add Any Batsman's Record</h2>
+                    <!-- <h2 class="title">Add Any Batsman's Record</h2> -->
 
-                    <form method="POST">
+                    <form action="/auth/add_batting_record" method="POST">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input required="true" class="input--style-1" type="text" placeholder="BATSMAN ID" name="id">
+                                    <input id="player_id" required="true" class="input--style-1" type="text" placeholder="BATSMAN ID" name="player_id">
                                 </div>
                             </div>
 
 
                             <div class="col-2">
-                                <div class="input-group">
-                                    <input required="true" class="input--style-1" type="text" placeholder="BATSMAN NAME" name="name">
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row row-space">
-
-                            <div class="col-3">
-                                <div class="input-group">
-                                    <input required="true" class="input--style-1" type="number" placeholder="MATCH NUMBER"
-                                        name="match_number">
-                                    <i class="input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-3">
-                                <div class="input-group">
-                                    <input required="true" class="input--style-1 js-datepicker" type="text" placeholder="MATCH DATE"
-                                        name="birthday">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-
-                            <div class="col-3">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select required="true" name="gender">
-                                            <option disabled="disabled" selected="selected">Opposition</option>
-                                            <option>Maraz XI</option>
-                                            <option>Pulock XI</option>
-                                            <option>Ohee XI</option>
+                                        <select id="match_type" required="true" name="match_type">
+                                            <option disabled="disabled" selected="selected">MATCH TYPE</option>
+                                            <option>One Day</option>
+                                            <option>Twenty</option>
+                                            <option>Test</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Dots, ones, twos  -->
+                        <div class="row row-space">
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input id="dots" class="input--style-1" type="number" name="dots" placeholder="DOTS" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-3">
+
+                                <div class="input-group">
+                                    <input id="ones" class="input--style-1" type="number" name="ones" placeholder="ONES" required>  
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input id="twos" class="input--style-1" type="number" name="twos" placeholder="TWOS" required>
                                 </div>
                             </div>
                         </div>
+                        <!-- Dots, ones, twos  -->
 
-
+                        <!-- thress, fours, sixes  -->
                         <div class="row row-space">
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="input-group">
-                                    <input required="true" class="input--style-1" type="number" step="0.1" placeholder="RUN SCORED"
-                                        name="res_code">
+                                    <input id="threes" class="input--style-1" type="number" name="threes" placeholder="THRESS" required>
+                                    <!-- <input id="dots" class="input--style-1" type="number" name="dots" placeholder="DOTS" required> -->
+                                </div>
+
+                            </div>
+
+                            <div class="col-3">
+
+                                <div class="input-group">
+                                    <input id="fours" class="input--style-1" type="number" name="fours" placeholder="FOURS" required>
+                                    <!-- <input id="ones" class="input--style-1" type="number" name="ones" placeholder="ONES" required>   -->
                                 </div>
                             </div>
 
-                            <div class="col-2 form-check my-2">
-                                <input required="true" type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input id="sixes" class="input--style-1" type="number" name="sixes" placeholder="SIXES" required>
+                                    <!-- <input id="twos" class="input--style-1" type="number" name="twos" placeholder="TWOS" required> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- thress, fours, sixes  -->
+
+                        <!-- total runs, total bowls, out/not out  -->
+                        <div class="row row-space">
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input id="run_scored" class="input--style-1" type="number" name="run_scored" placeholder="RUN SCORED" required>
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="col-3">
+
+                                <div class="input-group">
+                                    <input id="bowl_faced" class="input--style-1" type="number" name="bowl_faced" placeholder="BOWL FACED" required>
+                                </div>
+                            </div>
+
+                            <div class="col-3 form-check my-2">
+                                <!-- <input id="out_status" name="out_status" placeholder="OUT/NOT_OUT" required> -->
+                                <input required="true" type="checkbox" class="form-check-input" id="out_status" name="out_status">
                                 <label class="form-check-label" for="exampleCheck1">NOT OUT</label>
                             </div>
-
                         </div>
+                        <!-- total runs, total bowls, out/not out  -->
 
-
+                        <!-- MatchDate  -->
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input required="true" class="input--style-1" type="number" step="0.1" placeholder="BOWL FACED"
-                                        name="res_code">
+                                    <input id="date" class="input--style-1 js-datepicker" type="text" name="date" placeholder="DATE" required>
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    <!-- <input required="true" class="input--style-1" type="number" step="0.1" placeholder="BOWL FACED"
+                                        name="res_code"> -->
                                 </div>
                             </div>
                         </div>
 
-                        <!-- If player is also a bowler -->
-
-                        <b>If the player bowls</b>
-
-                        <div class="mb-3">
-                            <input required ="true" type="number" class="form-control" id="over_bowled" placeholder="Total Over Bowled">
-                        </div>
-                        <div class="mb-3">
-                            <input required ="true" type="number" class="form-control" id="run_consumed" placeholder="Total Runs Consumed">
-                        </div>
-                        <div class="mb-3">
-                            <input required ="true" type="number" class="form-control" id="wickets" placeholder="Number of Wickets">
-                        </div>
-
-
+                        
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
                             data-bs-target="#confirmbatModal">
                             Submit
@@ -159,7 +182,7 @@
                                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                                           </div>
 
-                                          <button class="btn btn-primary">Yes</button>
+                                          <button type="submit" class="btn btn-primary">Yes</button>
                                     </div>
 
 
