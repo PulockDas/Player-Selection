@@ -1,5 +1,5 @@
 /*
-CREAT DATABASE `player_selection`;
+CREATE DATABASE `player_selection`;
 
 CREATE TABLE `valid_academy`(
     id VARCHAR(50),
@@ -9,7 +9,7 @@ CREATE TABLE `valid_academy`(
 CREATE TABLE `academy_details`(
     ACADEMY_NAME VARCHAR(50),
     ACADEMY_ID VARCHAR(50),
-    EMAIL EMAIL,
+    EMAIL VARCHAR(40),
     PASSWORD VARCHAR(120),
     PRIMARY KEY(`ACADEMY_ID`)
 );
@@ -60,6 +60,28 @@ CREATE TABLE `bowler_record`(
     economy FLOAT,
     id VARCHAR(45),
     PRIMARY KEY(`id`),
+    FOREIGN KEY(`player_id`) REFERENCES players_details(`PlayerId`)
+);
+
+
+CREATE TABLE `batting_analysis`(
+    player_id VARCHAR(40),
+    out_count INT,
+    total_run_scored INT,
+    total_bowl_faced INT,
+    batting_avg FLOAT,
+    strike_rate FLOAT,
+    FOREIGN KEY(`player_id`) REFERENCES players_details(`PlayerId`)
+);
+
+
+CREATE TABLE `bowling_analysis`(
+    player_id VARCHAR(40),
+    total_wicket INT,
+    total_run INT,
+    total_over INT,
+    bowling_avg FLOAT,
+    economy FLOAT,
     FOREIGN KEY(`player_id`) REFERENCES players_details(`PlayerId`)
 );
 

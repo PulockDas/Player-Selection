@@ -165,6 +165,52 @@ exports.add_batting_record = async (req, res) => {
                 console.log(err.message);
             }
             else {
+                db.query('SELECT * FROM batting_analysis WHERE player_id = ?',[player_id],(err,results)=>{
+                    if(err){
+                        console.log(err.message);
+                    }
+                    else if(results.length==0){
+                        var notout_count=0
+                        if(out_status=="NOT_OUT"){
+                            notout_count=1
+                        }
+                        db.query('INSERT INTO `batting_analysis` SET ?',{
+                            player_id:player_id,
+                            notout_count:Number(notout_count),
+                            total_run_scored:Number(run_scored),
+                            total_bowl_faced:Number(bowl_faced),
+                            batting_avg:Number(run_scored),
+                            strike_rate:Number(Number(run_scored)/Number(bowl_faced))*100
+                        },(err,results)=>{
+                            if(err){
+                                console.log(err.message);
+                            }
+                            else{
+                                console.log(results);
+                            }
+                        });
+                    }
+                    else{
+                        var notout_count=0
+                        if(out_status=="NOT_OUT"){
+                            notout_count=1
+                        }
+                        var query='UPDATE `batting_analysis` SET notout_count = ?, total_run_scored =  ?,total_bowl_faced = ?,batting_avg = ?,strike_rate = ?';
+                        db.query(query,[Number(results[0].notout_count)+Number(notout_count),
+                        Number(results[0].total_run_scored)+Number(run_scored),
+                        Number(results[0].total_bowl_faced)+Number(bowl_faced),
+                        Number(Number(results[0].total_run_scored)+Number(run_scored))/(Number(results[0].notout_count)+Number(notout_count)),
+                        100*Number(Number(results[0].total_run_scored)+Number(run_scored))/(Number(results[0].total_bowl_faced)+Number(bowl_faced))
+                    ],(err,results)=>{
+                        if(err){
+                            console.log(err.message);
+                        }
+                        else{
+                            console.log(results);
+                        }
+                    });
+                    }
+                });
                 return res.render('add_batting_record', {
                     message: "succesfully sumitted!"
                 });
@@ -199,6 +245,44 @@ exports.add_bowling_record = async (req, res) => {
                 console.log(err.message);
             }
             else {
+                db.query('SELECT * FROM bowling_analysis WHERE player_id = ?',[player_id],(err,results)=>{
+                    if(err){
+                        console.log(err.message);
+                    }
+                    else if(results.length==0){
+                        db.query('INSERT INTO `bowling_analysis` SET ?',{
+                            player_id:player_id,
+                            total_wicket:Number(wicket),
+                            total_run:Number(run_cost),
+                            total_over:Number(over_bowled),
+                            bowling_avg:Number(Number(run_cost)/Number(wicket)),
+                            economy:Number(Number(run_cost)/Number(over_bowled))
+                        },(err,results)=>{
+                            if(err){
+                                console.log(err.message);
+                            }
+                            else{
+                                console.log(results);
+                            }
+                        });
+                    }
+                    else{
+                        var query='UPDATE `bowling_analysis` SET total_wicket = ?, total_run =  ?,total_over = ?,bowling_avg = ?,economy = ?';
+                        db.query(query,[Number(results[0].total_wicket)+Number(wicket),
+                        Number(results[0].total_run)+Number(run_cost),
+                        Number(results[0].total_over)+Number(over_bowled),
+                        Number(Number(results[0].total_run)+Number(run_cost))/(Number(results[0].total_wicket)+Number(wicket)),
+                        Number(Number(results[0].total_run)+Number(run_cost))/(Number(results[0].total_over)+Number(over_bowled))
+                    ],(err,results)=>{
+                        if(err){
+                            console.log(err.message);
+                        }
+                        else{
+                            console.log(results);
+                        }
+                    });
+                    }
+                });
                 return res.render('add_bowling_record', {
                     message: "succesfully sumitted!"
                 });
