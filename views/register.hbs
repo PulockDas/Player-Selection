@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Your Academy</title>
 
+    <!-- eita ami korsi #pdk -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- eita ami korsi #pdk -->
+
     <link rel="stylesheet" href="/cssFiles/LoginRegistrationPageStyles.css">
 </head>
 
 <body>
+
+    <!-- eita ami korsi #pdk -->
+    {{#if message}}
+    {{!-- <h4 align="center">{{message}}</h4> --}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Check Again!</strong> 
+        <div>{{message}}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+    <!-- eita ami korsi #pdk -->
+
     <img src="/imageFiles/musfiq.png" class="musfiq">
     <img src="/imageFiles/shakib.png" class="shakib">
     <img src="/imageFiles/tamim.png" class="tamim">
@@ -18,8 +35,8 @@
                 <h3>Enter your academy name</h3>
             </strong></label>
         <div>
-            <input class="Input_academy_name" type="text" placeholder="academy name" name="acName"
-                id="academy_name" required>
+            <input class="Input_academy_name" type="text" placeholder="academy name" name="acName" id="academy_name"
+                required>
         </div>
 
 
@@ -27,8 +44,7 @@
                 <h3>Enter your academy id</h3>
             </strong></label>
         <div>
-            <input class="Input_academyId" type="text" placeholder="academy id" name="acId" id="academy_id"
-                required>
+            <input class="Input_academyId" type="text" placeholder="academy id" name="acId" id="academy_id" required>
         </div>
 
 
@@ -36,8 +52,8 @@
                 <h3>Enter your academy email</h3>
             </strong></label>
         <div>
-            <input class="Input_academyEmail" type="email" placeholder="academy email" name="acEmail"
-                id="academy_email" required>
+            <input class="Input_academyEmail" type="email" placeholder="academy email" name="acEmail" id="academy_email"
+                required>
         </div>
 
 
@@ -45,26 +61,30 @@
                 <h3>Enter your password</h3>
             </strong></label>
         <div>
-            <input class="Input_password" type="password" placeholder="password" name="acPassword" id="password" required>
+            <input class="Input_password" type="password" placeholder="password" name="acPassword" id="password"
+                required>
         </div>
 
         <label for="Repassword"><strong>
                 <h3>Re-Enter your password</h3>
             </strong></label>
         <div>
-            <input class="Input_password" type="password" placeholder="password" name="RePassword" id="password" required>
+            <input class="Input_password" type="password" placeholder="password" name="RePassword" id="password"
+                required>
         </div>
 
         <button class="Register_button" type="submit"><b>REGISTER</b></button>
         <button class="Login_button" type="button"><b><a href="/login" style="color: azure;">Login Here</a></b></button>
     </form>
 
-    {{#if message}}
-    <h4 align="center">{{message}}</h4>
-    {{/if}}
-
     <img src="/imageFiles/side_image1.png" class="side_image1">
     <img src="/imageFiles/side_image2.png" class="side_image2">
+
+    <!-- eita ami korsi #pdk -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <!-- eita ami korsi #pdk -->
 
 </body>
 
