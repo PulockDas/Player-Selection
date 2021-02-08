@@ -1,8 +1,31 @@
-body {
-    width: 100vw;
-    height: auto;
-    background-color: rgb(81, 194, 216);
+*{
     box-sizing: border-box;
+}
+body, html {
+    width: 100vw;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    
+}
+
+.banner-image{
+    background-image: url(/imageFiles/stadium.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    opacity: 80%;
+}
+
+.banner-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    
 }
 
 .musfiq {
@@ -17,6 +40,7 @@ body {
     width: 6.5vw;
     height: auto;
 
+    margin-top: 5vh;
     margin-left: 1vw;
 }
 
@@ -24,6 +48,7 @@ body {
     width: 6.5vw;
     height: auto;
 
+    margin-top: 5vh;
     margin-left: 1vw;
 }
 
@@ -50,15 +75,15 @@ body {
     box-sizing: border-box;
 }
 
-.Login_button,
+
 .Register_button {
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif;
     font-size: 1vw;
     background-color: #142710;
     border-radius: 5px;
     color: white;
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
     margin-left: .5vw;
@@ -67,6 +92,12 @@ body {
     margin-right: 1vw;
     margin-bottom: 1vh;
     border: none;
+    cursor: pointer; */
+
+    
+    margin-top: 1vh;
+
+    margin-bottom: 1vh;
     cursor: pointer;
 }
 
@@ -80,9 +111,8 @@ body {
     background-color: red;
 }
 
-.register_link,
 .login_link {
-    font-size: 1vw;
+    /* font-size: 1vw;
     color: white;
     background-color: #142710;
     border-radius: 5px;
@@ -91,7 +121,9 @@ body {
     padding-top: 1.1vh;
     padding-bottom: 1.1vh;
     margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-bottom: 10vh; */
+    
+    float: right;
     
 }
 

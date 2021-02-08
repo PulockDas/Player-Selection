@@ -20,7 +20,7 @@ CREATE TABLE `players_details`(
     Name VARCHAR(30),
     BirthDate VARCHAR(30),
     PlayerID VARCHAR(30),
-    Email EMAIL,
+    Email VARCHAR(50),
     PlayersContact VARCHAR(15),
     PlayersGardiansContact VARCHAR(15),
     PlayingRole VARCHAR(35),
@@ -109,10 +109,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "player_selection"
+    // host: process.env.DATABASE_HOST,
+    // user: process.env.DATABASE_USER,
+    // password: process.env.DATABASE_PASSWORD,
+    // database: process.env.DATABASE
 });
 
 db.connect((err) => {
