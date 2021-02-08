@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bycrypt = require('bcryptjs');
 const emailValidator = require('deep-email-validator');
 const alert = require('alert');
+const math = require('mathjs');
 
 
 async function isEmailValid(email) {
@@ -141,9 +142,11 @@ exports.add_player = async (req, res) => {
 
 exports.add_batting_record = async (req, res) => {
     try {
-        const { player_id, run_scored, match_type,dots,ones,twos,threes,fours,sixes,bowl_faced, out_status,date } = req.body;
+        const { player_id, match_type,dots,ones,twos,threes,fours,sixes, out_status,date } = req.body;
 
         console.log(req.body);
+        var run_scored = Number(ones)+Number(twos)*2+Number(threes)*3+Number(fours)*4+Number(sixes)*6;
+        var bowl_faced = Number(dots)+Number(ones)+Number(twos)+Number(threes)+Number(fours)+Number(sixes);
 
         db.query('INSERT INTO batsman_record SET ?', {
             player_id: player_id,
@@ -154,10 +157,10 @@ exports.add_batting_record = async (req, res) => {
             threes:threes,
             fours:fours,
             sixes:sixes,
-            run_scored: Number(run_scored),
-            bowl_faced: Number(bowl_faced),
+            run_scored: run_scored,
+            bowl_faced: bowl_faced,
             out_status: out_status,
-            strike_rate: Number(run_scored)/Number(bowl_faced) * 100,
+            strike_rate: (run_scored/bowl_faced) * 100,
             id: player_id+date
         }, (err, results) => {
 
@@ -170,13 +173,13 @@ exports.add_batting_record = async (req, res) => {
                         console.log(err.message);
                     }
                     else if(results.length==0){
-                        var notout_count=0
-                        if(out_status=="NOT_OUT"){
-                            notout_count=1
+                        var out_count=0
+                        if(out_status=="OUT"){
+                            out_count=1
                         }
                         db.query('INSERT INTO `batting_analysis` SET ?',{
                             player_id:player_id,
-                            notout_count:Number(notout_count),
+                            out_count:Number(out_count),
                             total_run_scored:Number(run_scored),
                             total_bowl_faced:Number(bowl_faced),
                             batting_avg:Number(run_scored),
@@ -191,16 +194,17 @@ exports.add_batting_record = async (req, res) => {
                         });
                     }
                     else{
-                        var notout_count=0
-                        if(out_status=="NOT_OUT"){
-                            notout_count=1
+                        var out_count=0
+                        if(out_status=="OUT"){
+                            out_count=1
                         }
-                        var query='UPDATE `batting_analysis` SET notout_count = ?, total_run_scored =  ?,total_bowl_faced = ?,batting_avg = ?,strike_rate = ?';
-                        db.query(query,[Number(results[0].notout_count)+Number(notout_count),
+                        var query='UPDATE `batting_analysis` SET out_count = ?, total_run_scored =  ?,total_bowl_faced = ?,batting_avg = ?,strike_rate = ? WHERE player_id=?';
+                        db.query(query,[Number(results[0].out_count)+Number(out_count),
                         Number(results[0].total_run_scored)+Number(run_scored),
                         Number(results[0].total_bowl_faced)+Number(bowl_faced),
-                        Number(Number(results[0].total_run_scored)+Number(run_scored))/(Number(results[0].notout_count)+Number(notout_count)),
-                        100*Number(Number(results[0].total_run_scored)+Number(run_scored))/(Number(results[0].total_bowl_faced)+Number(bowl_faced))
+                        Number(Number(results[0].total_run_scored)+Number(run_scored))/math.max((Number(results[0].out_count)+Number(out_count)),1),
+                        100*Number(Number(results[0].total_run_scored)+Number(run_scored))/(Number(results[0].total_bowl_faced)+Number(bowl_faced)),
+                        player_id
                     ],(err,results)=>{
                         if(err){
                             console.log(err.message);
@@ -267,12 +271,13 @@ exports.add_bowling_record = async (req, res) => {
                         });
                     }
                     else{
-                        var query='UPDATE `bowling_analysis` SET total_wicket = ?, total_run =  ?,total_over = ?,bowling_avg = ?,economy = ?';
+                        var query='UPDATE `bowling_analysis` SET total_wicket = ?, total_run =  ?,total_over = ?,bowling_avg = ?,economy = ? WHERE player_id=?';
                         db.query(query,[Number(results[0].total_wicket)+Number(wicket),
                         Number(results[0].total_run)+Number(run_cost),
                         Number(results[0].total_over)+Number(over_bowled),
-                        Number(Number(results[0].total_run)+Number(run_cost))/(Number(results[0].total_wicket)+Number(wicket)),
-                        Number(Number(results[0].total_run)+Number(run_cost))/(Number(results[0].total_over)+Number(over_bowled))
+                        Number(Number(results[0].total_run)+Number(run_cost))/math.max((Number(results[0].total_wicket)+Number(wicket)),1),
+                        Number(Number(results[0].total_run)+Number(run_cost))/(Number(results[0].total_over)+Number(over_bowled)),
+                        player_id
                     ],(err,results)=>{
                         if(err){
                             console.log(err.message);
