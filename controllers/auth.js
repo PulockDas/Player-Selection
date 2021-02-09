@@ -129,6 +129,8 @@ exports.add_player = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
+                console.log(err.message);
+                
                 return res.render('add_player', {
                     message: "check your internet or duplicate entry."
                 });
@@ -173,7 +175,7 @@ exports.add_batting_record = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                //console.log(err.message);
+                console.log(err.message);
                 return res.render('add_batting_record', {
                     message: "check your internet or duplicate entry."
                 });

@@ -60,18 +60,15 @@
 
 
                 <!-- Button trigger modal -->
-                <a class="btn btn-danger mx-2"
-                   href="/add_player"><p style="color: azure;">AddPlayer</p></a>
-              
+                <a class="btn btn-danger mx-2" href="/add_player">AddPlayer</a>
 
 
-                    <a class="btn btn-success mx-2"
-                         href="/add_batting_record"><p style="color: azure;">Batting</p></a>
-                    
 
-                <a class="btn btn-success mx-2"
-                        href="/add_bowling_record"><p style="color: azure;">Bowling</p></a>
-                
+                <a class="btn btn-success mx-2" href="/add_batting_record">Batting</a>
+
+
+                <a class="btn btn-success mx-2" href="/add_bowling_record">Bowling</a>
+
 
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -80,7 +77,7 @@
             </div>
         </div>
     </nav>
-    
+
     <h1>Allrounder Details</h1>
     <hr>
 
@@ -89,11 +86,11 @@
         crossorigin="anonymous"></script>
 
 
-    {{#each data}}
     <div class="row">
-        <div class="col-sm-4">
+        {{#each data}}
+        <div class="col-sm-4 my-2">
             <div class="card text-center" style="width: 18rem;">
-               <img src="/imageFiles/batsman_logo.jpg" alt="error"/>
+                <img src="/imageFiles/batsman_logo.jpg" alt="error" />
                 <div class="card-body">
                     <h5 class="card-title">Academy Name: {{this.academy_name}}</h5>
                     <h5 class="card-title">Name: {{this.name}}</h5>
@@ -102,17 +99,17 @@
                         <p>Batting Avg :{{this.batting_avg}}</p>
                         <p>Strike Rate : {{this.strike_rate}}</p>
                         <p>Bowling Avg :{{this.bowling_avg}}</p>
-                        <p>Economy : {{this.economy}}</p>  
+                        <p>Economy : {{this.economy}}</p>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        </div>
-    {{/each}}
+        {{/each}}
+    </div>
 
-    
-    
+
+
 
 </body>
 

@@ -60,18 +60,21 @@
 
 
                 <!-- Button trigger modal -->
-                <a class="btn btn-danger mx-2"
-                   href="/add_player"><p style="color: azure;">AddPlayer</p></a>
-              
+                <a class="btn btn-danger mx-2" href="/add_player">
+                    AddPlayer
+                </a>
 
 
-                    <a class="btn btn-success mx-2"
-                         href="/add_batting_record"><p style="color: azure;">Batting</p></a>
-                    
 
-                <a class="btn btn-success mx-2"
-                        href="/add_bowling_record"><p style="color: azure;">Bowling</p></a>
-                
+                <a class="btn btn-success mx-2" href="/add_batting_record">
+                    Batting
+                </a>
+
+
+                <a class="btn btn-success mx-2" href="/add_bowling_record">
+                    Bowling
+                </a>
+
 
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -85,32 +88,32 @@
     <hr>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+        </script>
 
 
-    {{#each data}}
+
     <div class="row">
-        <div class="col-sm-4">
+        {{#each data}}
+        <div class="col-sm-4 my-2">
             <div class="card text-center" style="width: 18rem;">
-               <img src="/imageFiles/batsman_logo.jpg"/>
+                <img src="/imageFiles/batsman_logo.jpg" />
                 <div class="card-body">
                     <h5 class="card-title">Academy Id: {{this.academy_name}}</h5>
                     <h5 class="card-title">Name: {{this.name}}</h5>
                     <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
                     <div class="details">
                         <p>Batting Avg :{{this.batting_avg}}</p>
-                        <p>Strike Rate : {{this.strike_rate}}</p>  
+                        <p>Strike Rate : {{this.strike_rate}}</p>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        </div>
-    {{/each}}
+        {{/each}}
+    </div>
 
-    
-    
+
 
 </body>
 
