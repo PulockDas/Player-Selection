@@ -16,7 +16,7 @@ body, html {
     background-repeat: no-repeat;
     background-position: center center;
     height: 100%;
-    opacity: 80%;
+    opacity: 60%;
 }
 
 .banner-text{
@@ -111,6 +111,10 @@ body, html {
     background-color: red;
 }
 
+.Login_button{
+    margin-top: 1vh;
+}
+
 .login_link {
     /* font-size: 1vw;
     color: white;
@@ -123,8 +127,14 @@ body, html {
     margin-top: 10vh;
     margin-bottom: 10vh; */
     
+    margin-top: 1vh;
     float: right;
     
+}
+
+.register_link{
+    margin-top: 1vh;
+    float: right;
 }
 
 h3 {

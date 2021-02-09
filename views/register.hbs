@@ -17,14 +17,16 @@
 <body>
 
     <!-- eita ami korsi #pdk -->
-    {{#if message}}
-    {{!-- <h4 align="center">{{message}}</h4> --}}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Check Again!</strong>
-        <div>{{message}}</div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div>
+        {{#if message}}
+        {{!-- <h4 align="center">{{message}}</h4> --}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Check Again!</strong>
+            <div>{{message}}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
     </div>
-    {{/if}}
     <!-- eita ami korsi #pdk -->
 
 
@@ -88,8 +90,8 @@
                         Here</a></b></button> --}}
         </form>
 
-        <img src="/imageFiles/side_image1.png" class="side_image1">
-        <img src="/imageFiles/side_image2.png" class="side_image2">
+        {{!-- <img src="/imageFiles/side_image1.png" class="side_image1">
+        <img src="/imageFiles/side_image2.png" class="side_image2"> --}}
 
     </div>
 

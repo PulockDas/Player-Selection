@@ -5,35 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academy Admin Login</title>
+
+    <!-- eita ami korsi #pdk -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- eita ami korsi #pdk -->
+
     <link rel="stylesheet" href="/cssFiles/LoginRegistrationPageStyles.css">
 </head>
 
 <body>
-    <img src="/imageFiles/musfiq.png" class="musfiq">
-    <img src="/imageFiles/shakib.png" class="shakib">
-    <img src="/imageFiles/tamim.png" class="tamim">
-    <form class="Login_form" action="/auth/login" method="POST">
-        <label for="academy_id" style="color: black;"><strong>
-                <h3>Enter your academy id</h3>
-            </strong></label>
-        <div>
-            <input class="Input_academyId" type="text" placeholder="academy id" name="id" id="academy_id"
-                required>
-        </div>
-        <label for="password" style="color: black;"><strong>
-                <h3>Enter your password</h3>
-            </strong></label>
-        <div>
-            <input class="Input_password" type="password" placeholder="password" name="password" id="password" required>
-        </div>
+
+    <!-- eita ami korsi #pdk -->
+    <div>
         {{#if message}}
-        <h4 align="center">{{message}}</h4>
+        {{!-- <h4 align="center">{{message}}</h4> --}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Check Again!</strong>
+            <div>{{message}}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         {{/if}}
-        <button class="Login_button" type="submit"><b>LOGIN</b></button>
-        <b><a class="register_link" href="/register">REGISTER</a></b>
-    </form>
-    <img src="/imageFiles/side_image1.png" class="side_image1">
-    <img src="/imageFiles/side_image2.png" class="side_image2">
+    </div>
+    <!-- eita ami korsi #pdk -->
+
+    <div class="banner-image">
+    </div>
+
+    <div class="banner-text">
+
+        <img src="/imageFiles/musfiq.png" class="musfiq">
+        <img src="/imageFiles/shakib.png" class="shakib">
+        <img src="/imageFiles/tamim.png" class="tamim">
+
+        <form class="Login_form" action="/auth/login" method="POST">
+            <label for="academy_id" style="color: black;"><strong>
+                    <h3><b>Enter your academy id</b></h3>
+                </strong></label>
+            <div>
+                <input class="Input_academyId" type="text" placeholder="academy id" name="id" id="academy_id" required>
+            </div>
+            <label for="password" style="color: black;"><strong>
+                    <h3><b>Enter your password</b></h3>
+                </strong></label>
+            <div>
+                <input class="Input_password" type="password" placeholder="password" name="password" id="password"
+                    required>
+            </div>
+
+            <button class="btn btn-primary Login_button" type="submit"><b>LogIn</b></button>
+            <a href="/register" class="btn btn-success register_link"><b>REGISTER</b></a>
+
+            {{!-- <button class="Login_button" type="submit"><b>LOGIN</b></button>
+            <b><a class="register_link" href="/register">REGISTER</a></b> --}}
+        </form>
+        {{!-- <img src="/imageFiles/side_image1.png" class="side_image1">
+        <img src="/imageFiles/side_image2.png" class="side_image2"> --}}
+    </div>
+
+    <!-- eita ami korsi #pdk -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <!-- eita ami korsi #pdk -->
 </body>
 
 </html>
