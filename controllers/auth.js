@@ -25,7 +25,10 @@ exports.register = async (req, res) => {
     console.log(valid,reason,validators);
     db.query('SELECT id FROM valid_academy WHERE id = ?', [acId], async (err, results) => {
         if (err) {
-            console.log(err.message);
+            //console.log(err.message);
+            return res.render('register', {
+                message: "check your internet or duplicate entry."
+            });
         }
 
         else if (results.length <= 0) {
@@ -65,14 +68,14 @@ exports.register = async (req, res) => {
         });
 
     });
-    console.log(req.body);
+    //console.log(req.body);
 }
 
 exports.login = async (req, res) => {
     try {
         const { id, password } = req.body;
 
-        console.log(req.body);
+        //console.log(req.body);
 
         db.query('SELECT * FROM academy_details WHERE ACADEMY_ID = ?', [id], async (err, results) => {
             //console.log(results);
@@ -89,7 +92,7 @@ exports.login = async (req, res) => {
                 });
 
 
-                console.log("the token is " + token);
+                //console.log("the token is " + token);
 
                 const cookieOptions = {
                     expires: new Date(
@@ -104,6 +107,9 @@ exports.login = async (req, res) => {
         });
     } catch (err) {
         console.log(err.message);
+        return res.render('login', {
+            message: "check your internet or duplicate entry."
+        });
     }
 }
 
@@ -112,7 +118,7 @@ exports.add_player = async (req, res) => {
         const { AcademyId, Name, BirthDate, PlayerId, Email, PlayersContact, PlayersGardiansContact,
             PlayingRole, BattingStyle, BowlingStyle, Image } = req.body;
 
-        console.log(req.body);
+        //console.log(req.body);
 
         db.query('INSERT INTO players_details SET ?', {
             AcademyId: AcademyId, Name: Name,
@@ -123,7 +129,9 @@ exports.add_player = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                console.log(err.message);
+                return res.render('add_player', {
+                    message: "check your internet or duplicate entry."
+                });
             }
             else {
                 return res.render('add_player', {
@@ -144,7 +152,7 @@ exports.add_batting_record = async (req, res) => {
     try {
         const { player_id, match_type,dots,ones,twos,threes,fours,sixes, out_status,date } = req.body;
 
-        console.log(req.body);
+        //console.log(req.body);
         var run_scored = Number(ones)+Number(twos)*2+Number(threes)*3+Number(fours)*4+Number(sixes)*6;
         var bowl_faced = Number(dots)+Number(ones)+Number(twos)+Number(threes)+Number(fours)+Number(sixes);
 
@@ -165,12 +173,18 @@ exports.add_batting_record = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                console.log(err.message);
+                //console.log(err.message);
+                return res.render('add_batting_record', {
+                    message: "check your internet or duplicate entry."
+                });
             }
             else {
                 db.query('SELECT * FROM batting_analysis WHERE player_id = ?',[player_id],(err,results)=>{
                     if(err){
-                        console.log(err.message);
+                        //console.log(err.message);
+                        return res.render('add_batting_record', {
+                            message: "check your internet or duplicate entry."
+                        });
                     }
                     else if(results.length==0){
                         var out_count=0
@@ -186,7 +200,10 @@ exports.add_batting_record = async (req, res) => {
                             strike_rate:Number(Number(run_scored)/Number(bowl_faced))*100
                         },(err,results)=>{
                             if(err){
-                                console.log(err.message);
+                                //console.log(err.message);
+                                return res.render('add_batting_record', {
+                                    message: "check your internet or duplicate entry."
+                                });
                             }
                             else{
                                 console.log(results);
@@ -207,10 +224,24 @@ exports.add_batting_record = async (req, res) => {
                         player_id
                     ],(err,results)=>{
                         if(err){
-                            console.log(err.message);
+                            //console.log(err.message);
+                            return res.render('add_batting_record', {
+                                message: "check your internet or duplicate entry."
+                            });
                         }
                         else{
-                            console.log(results);
+                            //console.log(results);
+                        }
+                    });
+                    db.query('SELECT * FROM batting_analysis ORDER BY batting_avg DESC, strike_rate DESC',(err,results)=>{
+                        if(err){
+                            //console.log(err.message);
+                            return res.render('add_batting_record', {
+                                message: "check your internet or duplicate entry."
+                            });
+                        }
+                        else{
+                            //console.log("success!");
                         }
                     });
                     }
@@ -223,7 +254,10 @@ exports.add_batting_record = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error.message);
+        //console.log(error.message);
+        return res.render('add_batting_record', {
+            message: "check your internet or duplicate entry."
+        });
     }
 }
 
@@ -232,7 +266,7 @@ exports.add_bowling_record = async (req, res) => {
     try {
         const { player_id,match_type,maiden,wicket, over_bowled, run_cost,date } = req.body;
 
-        console.log(req.body);
+        //console.log(req.body);
 
         db.query('INSERT INTO bowler_record SET ?', {
             player_id: player_id,
@@ -246,12 +280,18 @@ exports.add_bowling_record = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                console.log(err.message);
+                //console.log(err.message);
+                return res.render('add_bowling_record', {
+                    message: "check your internet or duplicate entry."
+                });
             }
             else {
                 db.query('SELECT * FROM bowling_analysis WHERE player_id = ?',[player_id],(err,results)=>{
                     if(err){
-                        console.log(err.message);
+                        //console.log(err.message);
+                        return res.render('add_bowling_record', {
+                            message: "check your internet or duplicate entry."
+                        });
                     }
                     else if(results.length==0){
                         db.query('INSERT INTO `bowling_analysis` SET ?',{
@@ -263,10 +303,13 @@ exports.add_bowling_record = async (req, res) => {
                             economy:Number(Number(run_cost)/Number(over_bowled))
                         },(err,results)=>{
                             if(err){
-                                console.log(err.message);
+                                //console.log(err.message);
+                                return res.render('add_bowling_record', {
+                                    message: "check your internet or duplicate entry."
+                                });
                             }
                             else{
-                                console.log(results);
+                                //console.log(results);
                             }
                         });
                     }
@@ -280,10 +323,24 @@ exports.add_bowling_record = async (req, res) => {
                         player_id
                     ],(err,results)=>{
                         if(err){
-                            console.log(err.message);
+                            //console.log(err.message);
+                            return res.render('add_bowling_record', {
+                                message: "check your internet or duplicate entry."
+                            });
                         }
                         else{
-                            console.log(results);
+                            //console.log(results);
+                        }
+                    });
+                    db.query('SELECT * FROM bowling_analysis ORDER BY bowling_avg ASC, economy ASC',(err,results)=>{
+                        if(err){
+                            //console.log(err.message);
+                            return res.render('add_bowling_record', {
+                                message: "check your internet or duplicate entry."
+                            });
+                        }
+                        else{
+                            //console.log("success!");
                         }
                     });
                     }
@@ -296,6 +353,9 @@ exports.add_bowling_record = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error.message);
+        //console.log(error.message);
+        return res.render('add_bowling_record', {
+            message: "check your internet or duplicate entry."
+        });
     }
 }

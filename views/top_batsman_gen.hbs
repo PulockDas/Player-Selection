@@ -16,6 +16,71 @@
 </head>
 
 <body>
+
+    <!-- Here comes the navbar  -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CricBoss</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/top_batsman_gen">Top Batsmen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/top_bowler_gen">Top Bowlers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/top_allrounder_gen">Top All-Rounders</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Developers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Maraz Mia</a></li>
+                            <li><a class="dropdown-item" href="#">Pulock Das</a></li>
+                            <li><a class="dropdown-item" href="#">Sefat Ohee</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">From SWE, SUST</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+                </ul>
+
+
+                <!-- Button trigger modal -->
+                <a class="btn btn-danger mx-2"
+                   href="/add_player"><p style="color: azure;">AddPlayer</p></a>
+              
+
+
+                    <a class="btn btn-success mx-2"
+                         href="/add_batting_record"><p style="color: azure;">Batting</p></a>
+                    
+
+                <a class="btn btn-success mx-2"
+                        href="/add_bowling_record"><p style="color: azure;">Bowling</p></a>
+                
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <h1>Batsmen Details</h1>
     <hr>
 
@@ -24,236 +89,28 @@
         crossorigin="anonymous"></script>
 
 
-    <!-- Here The Top 15 batsmen cards are depicted -->
-
+    {{#each data}}
     <div class="row">
         <div class="col-sm-4">
             <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
+               <img src="/imageFiles/batsman_logo.jpg"/>
                 <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
+                    <h5 class="card-title">Academy Id: {{this.academy_name}}</h5>
+                    <h5 class="card-title">Name: {{this.name}}</h5>
                     <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
                     <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
+                        <p>Batting Avg :{{this.batting_avg}}</p>
+                        <p>Strike Rate : {{this.strike_rate}}</p>  
                     </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
+                    
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
         </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{/each}}
 
-
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="/imageFiles/musfiq.png" class="card-img-top" alt="Pic not loaded">
-                <div class="card-body">
-                    <h5 class="card-title">Mushfiqur Rahim</h5>
-                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                    <div class="details">
-                        Average: 55 <br>
-                        Strike Rate: 89
-                    </div>
-                    <a href="#" class="btn btn-primary">All Stats</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
 
 </body>
 

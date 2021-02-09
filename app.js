@@ -109,14 +109,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "player_selection"
-    // host: process.env.DATABASE_HOST,
-    // user: process.env.DATABASE_USER,
-    // password: process.env.DATABASE_PASSWORD,
-    // database: process.env.DATABASE
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
 });
 
 db.connect((err) => {

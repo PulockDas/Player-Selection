@@ -16,6 +16,65 @@
 
 <body>
 
+    <!-- Here comes the navbar  -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CricBoss</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/top_batsman_gen">Top Batsmen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/top_bowler_gen">Top Bowlers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/top_allrounder_gen">Top All-Rounders</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Developers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Maraz Mia</a></li>
+                            <li><a class="dropdown-item" href="#">Pulock Das</a></li>
+                            <li><a class="dropdown-item" href="#">Sefat Ohee</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">From SWE, SUST</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+                </ul>
+
+
+                <!-- Button trigger modal -->
+                <a href="/login" type="button" class="btn btn-danger mx-2">
+                   LogIn</a>
+    
+
+
+                    <a href="/register" class="btn btn-success mx-2">Register</a>
+                
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <!-- eita ami korsi #pdk -->
     <div>
         {{#if message}}
@@ -54,7 +113,7 @@
             </div>
 
             <button class="btn btn-primary Login_button" type="submit"><b>LogIn</b></button>
-            <a href="/register" class="btn btn-success register_link"><b>REGISTER</b></a>
+            {{!-- <a href="/register" class="btn btn-success register_link"><b>REGISTER</b></a> --}}
 
             {{!-- <button class="Login_button" type="submit"><b>LOGIN</b></button>
             <b><a class="register_link" href="/register">REGISTER</a></b> --}}
