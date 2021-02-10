@@ -1,4 +1,6 @@
 # CricBoss
+**Version 1.0.0**
+
 It's a web based application. The goal is to make a list of best players for any cricket academy.
 
 # About
@@ -33,9 +35,10 @@ For front end `Javascript`, `HTML` and `CSS` are used.
 ## Back End
 For back a relational database is created. `MySQL` is used for making the database and tables. All the records are stored in this database.
 
----
-**Version 1.0.0**
+# Future Goals
+The website is a prototype. Future goal use to test it and host it in the server. Also update and build new versions
 
+---
 For any inquiry please contact
 1. [Pulock](pulck@gmail.com)
 1. [Maraz](marazsust@gmail.com)
@@ -43,4 +46,4 @@ For any inquiry please contact
 ---
 
 ## License and Agreement
-© Pulock Das Komlo, Maraz Mia and Sefat Ibne Kamal, Department of Software Engineering, Shahjalal University of Science and Technology
+© Pulock Das Komlo, Maraz Mia and Sefat Ibne Kamal, Department of Software Engineering, [Shahjalal University of Science and Technology](https://www.sust.edu/)
