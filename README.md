@@ -6,6 +6,13 @@
 It can sort out the best players of the three cricket fields - Batsman, Bowlers and lastly all rounders. The list results in a sorted list of players depending on their performance.
 So, one only needs to give the data of their corresponding players and they can easily find out their best playing team.
 
+# Features
+- Sorted list of top batsman
+- Sorted list of top bowlers
+- Database to store the records of players
+- User friendly interface
+- Simple and easy to use
+
 # Instructions
 CricBoss is very to use as it's a user friendly application. For any academy that wants to use its features, the instructions are
 - Register your academy
@@ -15,11 +22,11 @@ CricBoss is very to use as it's a user friendly application. For any academy tha
 - Update the status and records of the players regularly
 - Click the top batsman or top bowlers to find the best list
 
-# Features
-- Sorted list of top batsman
-- Sorted list of top bowlers
-- Database to store the records of players
-- User friendly interface
-- Simple and easy to use
+# How it works
+Cricboss registers the academies and registers the players of that academy under its name. All of those data are stored in a database. The database is regularly updated when the player data is updated for regular match. CricBoss uses statistical analysis to find the following parameters - `Batting Average` and `Strike Rate` for batsman, and `Bowling Average`and `Rate`For bowlers. Basing on these parameters using statistical analysis a sorted list of the top batsman and bowlers are given.
 
-#
+# Codes
+## Front End
+For front end `Javascript`, `HTML` and `CSS` are used.
+## Back End
+For back a relational database is created. `MySQL` is used for making the database and tables. All the records are stored in this database.
