@@ -1,5 +1,5 @@
 # CricBoss
-> It's a web based application. The motto is to make a list of best players for any cricket academy.
+> It's a web based application. The goal is to make a list of best players for any cricket academy.
 
-## Summary 
-
+# About
+**CricBoss** is a web based application. Aiming to various cricket academies, the goal of this project is to make a web platform which will sort out the best list of players of a certain organisation. 
