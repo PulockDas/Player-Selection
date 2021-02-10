@@ -34,3 +34,7 @@ img{
     width: 50%;
     margin-left: 24%;
 }
+
+.d-flex{
+    justify-content: center;
+}

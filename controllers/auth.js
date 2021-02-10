@@ -21,7 +21,7 @@ exports.register = async (req, res) => {
 
     const { acName, acId, acEmail, acPassword, RePassword } = req.body;
     const { valid, reason, validators } = await isEmailValid(acEmail);
-    //console.log(isEmailValid(acEmail));
+    console.log(isEmailValid(acEmail));
     console.log(valid,reason,validators);
     db.query('SELECT id FROM valid_academy WHERE id = ?', [acId], async (err, results) => {
         if (err) {
@@ -40,7 +40,7 @@ exports.register = async (req, res) => {
 
         else if (!valid) {
             return res.render('register', {
-                message: "the email you gave was not valid!"
+                message: "the email you gave was not valid! or your internet is broken!"
             });
         }
 
@@ -102,7 +102,21 @@ exports.login = async (req, res) => {
                 }
 
                 res.cookie('jwt', token, cookieOptions);
-                res.status(200).render("index_admin");
+                db.query('SELECT * FROM match_news ORDER BY id DESC LIMIT 5',(err,results)=>{
+                    var data=[];
+                    if(err || results.length<=0){
+                        data.push({description:none,result:none,score1:none,score2:none});
+                    }
+                    else{
+                        for(var i=0;i<results.length;i++){
+                            data.push({description:results[i].description,
+                                result:results[i].result,
+                                score1:results[i].score1,
+                                score2:results[i].score2});
+                        }
+                    }
+                    res.render("index_admin",{data:data});
+                });
             }
         });
     } catch (err) {
@@ -129,8 +143,6 @@ exports.add_player = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                console.log(err.message);
-                
                 return res.render('add_player', {
                     message: "check your internet or duplicate entry."
                 });
@@ -175,7 +187,7 @@ exports.add_batting_record = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                console.log(err.message);
+                //console.log(err.message);
                 return res.render('add_batting_record', {
                     message: "check your internet or duplicate entry."
                 });
@@ -233,17 +245,6 @@ exports.add_batting_record = async (req, res) => {
                         }
                         else{
                             //console.log(results);
-                        }
-                    });
-                    db.query('SELECT * FROM batting_analysis ORDER BY batting_avg DESC, strike_rate DESC',(err,results)=>{
-                        if(err){
-                            //console.log(err.message);
-                            return res.render('add_batting_record', {
-                                message: "check your internet or duplicate entry."
-                            });
-                        }
-                        else{
-                            //console.log("success!");
                         }
                     });
                     }
@@ -334,17 +335,6 @@ exports.add_bowling_record = async (req, res) => {
                             //console.log(results);
                         }
                     });
-                    db.query('SELECT * FROM bowling_analysis ORDER BY bowling_avg ASC, economy ASC',(err,results)=>{
-                        if(err){
-                            //console.log(err.message);
-                            return res.render('add_bowling_record', {
-                                message: "check your internet or duplicate entry."
-                            });
-                        }
-                        else{
-                            //console.log("success!");
-                        }
-                    });
                     }
                 });
                 return res.render('add_bowling_record', {
@@ -359,5 +349,93 @@ exports.add_bowling_record = async (req, res) => {
         return res.render('add_bowling_record', {
             message: "check your internet or duplicate entry."
         });
+    }
+}
+
+exports.player_search_details = (req,res)=>{
+    try {
+        const search_item = req.body.search_item;
+        //console.log(req.body,search_item);
+        db.query('SELECT * FROM players_details,bowling_analysis,batting_analysis WHERE players_details.Name=? AND players_details.PlayerId=batting_analysis.player_id  LIMIT 1',[search_item],(err,results)=>{
+            
+            //console.log(results);
+            if(err || results.length<=0){
+                var data=[];
+                data.push({academy_id:"not found",
+                player_name:"not found",
+                playing_role:"not found",
+                total_wicket:"not found",
+                bowling_avg:"not found",
+                economy:"not found",
+                total_run:"not found",
+                batting_avg:"not found",
+                strike_rate:"not found"});
+                return res.render('player_search_details',{data:data});
+            }
+
+            
+            
+            var data=[];
+            //console.log(results[0]);
+            data.push({
+                academy_id:results[0].AcademyId,
+                player_name:results[0].Name,
+                playing_role:results[0].PlayingRole,
+                total_wicket:results[0].total_wicket,
+                bowling_avg:results[0].bowling_avg,
+                economy:results[0].economy,
+                total_run:results[0].total_run,
+                batting_avg:results[0].batting_avg,
+                strike_rate:results[0].strike_rate
+            });
+            return res.render('player_search_details',{data:data});
+        });
+        
+    } catch (error) {
+        console.log(err.message);
+    }
+}
+
+exports.player_search_details_ad = (req,res)=>{
+    try {
+        const search_item = req.body.search_item;
+        //console.log(req.body,search_item);
+        db.query('SELECT * FROM players_details,bowling_analysis,batting_analysis WHERE players_details.Name=? AND players_details.PlayerId=batting_analysis.player_id  LIMIT 1',[search_item],(err,results)=>{
+            
+            //console.log(results);
+            if(err || results.length<=0){
+                var data=[];
+                data.push({academy_id:"not found",
+                player_name:"not found",
+                playing_role:"not found",
+                total_wicket:"not found",
+                bowling_avg:"not found",
+                economy:"not found",
+                total_run:"not found",
+                batting_avg:"not found",
+                strike_rate:"not found"});
+                return res.render('player_search_details_ad',{data:data});
+            }
+
+            
+            
+            var data=[];
+            //console.log(results[0]);
+            data.push({
+                academy_id:results[0].AcademyId,
+                player_name:results[0].Name,
+                playing_role:results[0].PlayingRole,
+                total_wicket:results[0].total_wicket,
+                bowling_avg:results[0].bowling_avg,
+                economy:results[0].economy,
+                total_run:results[0].total_run,
+                batting_avg:results[0].batting_avg,
+                strike_rate:results[0].strike_rate
+            });
+            return res.render('player_search_details_ad',{data:data});
+        });
+        
+    } catch (error) {
+        console.log(err.message);
     }
 }

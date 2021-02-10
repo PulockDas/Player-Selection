@@ -86,6 +86,14 @@ CREATE TABLE `bowling_analysis`(
 );
 
 
+CREATE TABLE match_news(
+	description VARCHAR(250),
+    result VARCHAR(250),
+    score1 VARCHAR(50),
+    score2 VARCHAR(50)
+);
+
+
 
 */
 

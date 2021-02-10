@@ -77,15 +77,28 @@
                     <a href="/register" class="btn btn-success mx-2">Register</a>
                 
 
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                 <form class="d-flex" method="POST" action="/auth/player_search_details">
+                    <input class="form-control me-2" type="search" placeholder="Search a player" aria-label="Search" id="search_item" name="search_item">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <h1>Image Slideshow</h1>
+    <!-- eita ami korsi #pdk -->
+    <div>
+        {{#if message}}
+        {{!-- <h4 align="center">{{message}}</h4> --}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Check Again!</strong>
+            <div>{{message}}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+    </div>
+    <!-- eita ami korsi #pdk -->
+
+    <h1>Our Cricket Legends</h1>
     <!-- Here comes the image slideshow  -->
 
     <div class="container">
@@ -121,47 +134,24 @@
 
 
     <!-- Here comes the match headlines -->
-    <div class="Box">
-        <div class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
+    <div class="row">
+        {{#each data}}
+        <div class="col-sm-4 my-2">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                    <div class="details">
+                        <p>{{this.description}}</p>
+                        <p>{{this.result}}</p>
+                        <p>{{this.score1}}</p>
+                        <p>{{this.score2}}</p>  
+                    </div>
+                    
+                </div>
             </div>
         </div>
-
-    </div>
+        {{/each}}
+        </div>
 
 
 

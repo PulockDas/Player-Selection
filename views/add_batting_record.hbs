@@ -35,7 +35,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CricBoss</a>
+            <a class="navbar-brand" href="/index_admin">CricBoss</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -87,8 +87,8 @@
                         href="/add_bowling_record"><p style="color: azure;">Bowling</p></a>
                 
 
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" method="POST" action="/auth/player_search_details">
+                    <input class="form-control me-2" type="search" placeholder="Search a player" aria-label="Search" id="search_item" name="search_item">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>

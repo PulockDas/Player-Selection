@@ -30,7 +30,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CricBoss</a>
+            <a class="navbar-brand" href="/index_admin">CricBoss</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -39,13 +39,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/top_batsman_gen">Top Batsmen</a>
+                        <a class="nav-link" aria-current="page" href="/top_batsman_ad">Top Batsmen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/top_bowler_gen">Top Bowlers</a>
+                        <a class="nav-link" href="/top_bowler_ad">Top Bowlers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/top_allrounder_gen">Top All-Rounders</a>
+                        <a class="nav-link" href="/top_allrounder_ad">Top All-Rounders</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -69,6 +69,10 @@
 
 
                 <!-- Button trigger modal -->
+
+                <a class="btn btn-success mx-2"
+                        href="/logout">Logout</a>
+
                 <a class="btn btn-danger mx-2"
                    href="/add_player">AddPlayer</a>
               
@@ -80,17 +84,20 @@
 
                 <a class="btn btn-success mx-2"
                         href="/add_bowling_record">Bowling</a>
+
                 
 
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                
+
+                 <form class="d-flex" method="POST" action="/auth/player_search_details_ad">
+                    <input class="form-control me-2" type="search" placeholder="Search a player" aria-label="Search" id="search_item" name="search_item">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <h1>Image Slideshow</h1>
+    <h1>Our Cricket Legends</h1>
     <!-- Here comes the image slideshow  -->
 
     <div class="container">
@@ -126,47 +133,24 @@
 
 
     <!-- Here comes the match headlines -->
-    <div class="Box">
-        <div class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
-            </div>
-            <div class="item">
-                <div class="box"></div>
+    <div class="row">
+        {{#each data}}
+        <div class="col-sm-4 my-2">
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                    <div class="details">
+                        <p>{{this.description}}</p>
+                        <p>{{this.result}}</p>
+                        <p>{{this.score1}}</p>
+                        <p>{{this.score2}}</p>  
+                    </div>
+                    
+                </div>
             </div>
         </div>
-
-    </div>
+        {{/each}}
+        </div>
 
 
 

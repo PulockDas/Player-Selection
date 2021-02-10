@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academy Admin Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- eita ami korsi #pdk -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- eita ami korsi #pdk -->
 
-    <link rel="stylesheet" href="/cssFiles/LoginRegistrationPageStyles.css">
+    <link rel="stylesheet" href="/cssFiles/Batsman Details.css">
+
+    <title>Allrounder Details</title>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CricBoss</a>
+            <a class="navbar-brand" href="/">CricBoss</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -59,12 +60,6 @@
 
 
                 <!-- Button trigger modal -->
-                <a href="/login" type="button" class="btn btn-danger mx-2">
-                   LogIn</a>
-    
-
-
-                    <a href="/register" class="btn btn-success mx-2">Register</a>
                 
 
                 <form class="d-flex" method="POST" action="/auth/player_search_details">
@@ -74,59 +69,42 @@
             </div>
         </div>
     </nav>
+    
+    <h1>Player Details</h1>
+    <hr>
 
-    <!-- eita ami korsi #pdk -->
-    <div>
-        {{#if message}}
-        {{!-- <h4 align="center">{{message}}</h4> --}}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Check Again!</strong>
-            <div>{{message}}</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {{/if}}
-    </div>
-    <!-- eita ami korsi #pdk -->
-
-    <div class="banner-image">
-    </div>
-
-    <div class="banner-text">
-
-        <img src="/imageFiles/musfiq.png" class="musfiq">
-        <img src="/imageFiles/shakib.png" class="shakib">
-        <img src="/imageFiles/tamim.png" class="tamim">
-
-        <form class="Login_form" action="/auth/login" method="POST">
-            <label for="academy_id" style="color: black;"><strong>
-                    <h3><b>Enter your academy id</b></h3>
-                </strong></label>
-            <div>
-                <input class="Input_academyId" type="text" placeholder="academy id" name="id" id="academy_id" required>
-            </div>
-            <label for="password" style="color: black;"><strong>
-                    <h3><b>Enter your password</b></h3>
-                </strong></label>
-            <div>
-                <input class="Input_password" type="password" placeholder="password" name="password" id="password"
-                    required>
-            </div>
-
-            <button class="btn btn-primary Login_button" type="submit"><b>LogIn</b></button>
-            {{!-- <a href="/register" class="btn btn-success register_link"><b>REGISTER</b></a> --}}
-
-            {{!-- <button class="Login_button" type="submit"><b>LOGIN</b></button>
-            <b><a class="register_link" href="/register">REGISTER</a></b> --}}
-        </form>
-        {{!-- <img src="/imageFiles/side_image1.png" class="side_image1">
-        <img src="/imageFiles/side_image2.png" class="side_image2"> --}}
-    </div>
-
-    <!-- eita ami korsi #pdk -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-    <!-- eita ami korsi #pdk -->
+
+
+    {{#each data}}
+    <div class="row d-flex">
+        <div class="col-sm-6">
+            <div class="card text-center" style="width: 30rem;">
+               <img src="/imageFiles/batsman_logo.jpg" alt="error"/>
+                <div class="card-body">
+                    <h5 class="card-title">Academy Id: {{this.academy_id}}</h5>
+                    <h5 class="card-title">Name: {{this.player_name}}</h5>
+                    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                    <div class="details">
+                        <p>Total Run:{{this.total_run}}</p>
+                        <p>Batting Avg :{{this.batting_avg}}</p>
+                        <p>Strike Rate : {{this.strike_rate}}</p>
+                        <p>Total Wicket:{{this.total_wicket}}</p>
+                        <p>Bowling Avg :{{this.bowling_avg}}</p>
+                        <p>Economy : {{this.economy}}</p>  
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/each}}
+
+    
+    
+
 </body>
 
 </html>
