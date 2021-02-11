@@ -34,15 +34,15 @@ So, one only needs to give the data of their corresponding players and they can 
 For front end `Javascript`, `HTML` and `CSS` are used.
 ## Back End
 For back a relational database is created. `MySQL` is used for making the database and tables. All the records are stored in this database.
-![Relational Database](Screenshot (9).png)
+![Relational Database](https://github.com/PulockDas/Player-Selection/blob/main/Screenshot%20(9).png)
 
 # Future Goals
 The website is a prototype. Future goal use to test it and host it in the server. Also update and build new versions
 
 ---
 For any inquiry please contact
-1. [Pulock](pulck@gmail.com)
-1. [Maraz](marazsust@gmail.com)
+1. [Pulock](pulockkamol50@gmail.com)
+1. [Maraz](maraj262000@gmail.com)
 1. [Ohee](sfiohee@gmail.com)
 ---
 
