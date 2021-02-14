@@ -47,4 +47,4 @@ For any inquiry please contact
 ---
 
 ## License and Agreement
-© Pulock Das Komlo, Maraz Mia and Sefat Ibne Kamal, Department of Software Engineering, [Shahjalal University of Science and Technology](https://www.sust.edu/)
+© Pulock Das Kamol, Maraz Mia and Sefat Ibne Kamal, Department of Software Engineering, [Shahjalal University of Science and Technology](https://www.sust.edu/)
