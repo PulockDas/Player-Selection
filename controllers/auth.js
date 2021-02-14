@@ -1,14 +1,15 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bycrypt = require('bcryptjs');
-const emailValidator = require('deep-email-validator');
+//const emailValidator = require('deep-email-validator');
 const alert = require('alert');
 const math = require('mathjs');
+const check_auth = require('../public/js/check_auth');
 
 
-async function isEmailValid(email) {
-    return await emailValidator.validate(email);
-}
+// async function isEmailValid(email) {
+//     return await emailValidator.validate(email);
+// }
 
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
@@ -20,9 +21,9 @@ const db = mysql.createConnection({
 exports.register = async (req, res) => {
 
     const { acName, acId, acEmail, acPassword, RePassword } = req.body;
-    const { valid, reason, validators } = await isEmailValid(acEmail);
-    console.log(isEmailValid(acEmail));
-    console.log(valid,reason,validators);
+    // const { valid, reason, validators } = await isEmailValid(acEmail);
+    // console.log(isEmailValid(acEmail));
+    // console.log(valid,reason,validators);
     db.query('SELECT id FROM valid_academy WHERE id = ?', [acId], async (err, results) => {
         if (err) {
             //console.log(err.message);
@@ -38,11 +39,11 @@ exports.register = async (req, res) => {
         }
 
 
-        else if (!valid) {
-            return res.render('register', {
-                message: "the email you gave was not valid! or your internet is broken!"
-            });
-        }
+        // else if (!valid) {
+        //     return res.render('register', {
+        //         message: "the email you gave was not valid! or your internet is broken!"
+        //     });
+        // }
 
         else if (acPassword != RePassword) {
             return res.render('register', {
@@ -105,7 +106,7 @@ exports.login = async (req, res) => {
                 db.query('SELECT * FROM match_news ORDER BY id DESC LIMIT 5',(err,results)=>{
                     var data=[];
                     if(err || results.length<=0){
-                        data.push({description:none,result:none,score1:none,score2:none});
+                        data.push({description:"none",result:"none",score1:"none",score2:"none"});
                     }
                     else{
                         for(var i=0;i<results.length;i++){
@@ -129,13 +130,21 @@ exports.login = async (req, res) => {
 
 exports.add_player = async (req, res) => {
     try {
-        const { AcademyId, Name, BirthDate, PlayerId, Email, PlayersContact, PlayersGardiansContact,
+        const { Name, BirthDate, PlayerId, Email, PlayersContact, PlayersGardiansContact,
             PlayingRole, BattingStyle, BowlingStyle, Image } = req.body;
 
         //console.log(req.body);
+        
+        const token = req.cookies.jwt;
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
+        req.userData = decoded;
+        var AcademyId = req.userData.id.toString();
+        console.log(AcademyId);
+
 
         db.query('INSERT INTO players_details SET ?', {
-            AcademyId: AcademyId, Name: Name,
+            AcademyId: AcademyId, 
+            Name: Name,
             BirthDate: BirthDate, PlayerId: PlayerId, Email: Email,
             PlayersContact: PlayersContact, PlayersGardiansContact: PlayersGardiansContact,
             PlayingRole: PlayingRole, BattingStyle: BattingStyle,
@@ -156,7 +165,7 @@ exports.add_player = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(err.message);
+        console.log(error.message);
     }
 }
 
@@ -283,7 +292,7 @@ exports.add_bowling_record = async (req, res) => {
         }, (err, results) => {
 
             if (err) {
-                //console.log(err.message);
+                console.log(err.message);
                 return res.render('add_bowling_record', {
                     message: "check your internet or duplicate entry."
                 });
@@ -291,7 +300,7 @@ exports.add_bowling_record = async (req, res) => {
             else {
                 db.query('SELECT * FROM bowling_analysis WHERE player_id = ?',[player_id],(err,results)=>{
                     if(err){
-                        //console.log(err.message);
+                        console.log(err.message);
                         return res.render('add_bowling_record', {
                             message: "check your internet or duplicate entry."
                         });
@@ -306,7 +315,7 @@ exports.add_bowling_record = async (req, res) => {
                             economy:Number(Number(run_cost)/Number(over_bowled))
                         },(err,results)=>{
                             if(err){
-                                //console.log(err.message);
+                                console.log(err.message);
                                 return res.render('add_bowling_record', {
                                     message: "check your internet or duplicate entry."
                                 });

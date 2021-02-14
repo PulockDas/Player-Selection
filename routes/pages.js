@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     db.query('SELECT * FROM match_news ORDER BY id DESC LIMIT 5',(err,results)=>{
         var data=[];
         if(err || results.length<=0){
-            data.push({description:none,result:none,score1:none,score2:none});
+            data.push({description:"none",result:"none",score1:"none",score2:"none"});
         }
         else{
             for(var i=0;i<results.length;i++){
@@ -34,10 +34,11 @@ router.get('/', (req, res) => {
 
 router.get('/logout',check_auth, async(req, res) => {
     res.clearCookie('jwt');
+    console.log(req.userData.id);
     db.query('SELECT * FROM match_news ORDER BY id DESC LIMIT 5',(err,results)=>{
         var data=[];
         if(err || results.length<=0){
-            data.push({description:none,result:none,score1:none,score2:none,message:"succesfully logged out!"});
+            data.push({description:"none",result:"none",score1:"none",score2:"none",message:"succesfully logged out!"});
         }
         else{
             for(var i=0;i<results.length;i++){
@@ -55,7 +56,7 @@ router.get('/index_admin', (req, res) => {
     db.query('SELECT * FROM match_news ORDER BY id DESC LIMIT 5',(err,results)=>{
         var data=[];
         if(err || results.length<=0){
-            data.push({description:none,result:none,score1:none,score2:none});
+            data.push({description:"none",result:"none",score1:"none",score2:"none"});
         }
         else{
             for(var i=0;i<results.length;i++){

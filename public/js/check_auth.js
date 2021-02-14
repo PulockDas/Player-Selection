@@ -8,6 +8,7 @@ const auth = async (req,res,next)=>{
         const token = req.cookies.jwt;
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
         req.userData = decoded;
+        console.log(decoded,req.userData);
         next();
     } catch (error) {
         return res.status(401).json({
