@@ -34,14 +34,14 @@ So, one only needs to give the data of their corresponding players and they can 
 For front end `Javascript`, `HTML` and `CSS` are used. `HandleBars` were used as rendering engine.
 ## Back End
 `MySQL` is used for making the database and tables. All the records are stored in this database.
-![Preview](https://github.com/PulockDas/Player-Selection/blob/main/Screenshot(139).png)
+![Preview](https://github.com/PulockDas/Player-Selection/blob/main/Screenshot%20(139).png)
 ![Relational Database](https://github.com/PulockDas/Player-Selection/blob/main/Screenshot%20(9).png)
 
 
 # How to run it(for educational purposes)
 1) Install NodeJS and npm 
 2) Install XAMPP
-3) Run MySQL and Apache from XAMPP and create database and tables(given in app.js)
+3) Start MySQL and Apache from XAMPP and create database and tables(given in app.js)
 4) Navigate to your player-selection directory from terminal and type `npm start`
 5) Open a browser and go to port `5001`. Boom! 
 
