@@ -1,10 +1,10 @@
 # CricBoss
 **Version 1.0.0**
 
-It's a web based application. The goal is to make a list of best players for any cricket academy.
+It's a web based platform. The goal is to make a list of best players for any cricket academy.
 
 # About
-**CricBoss** is a web based application. Aiming to various cricket academies, the goal of this project is to make a web platform which will sort out the best list of players of a certain organisation. **CricBoss** is made for the cricket academies so that they can have the best possible team on their turf.
+**CricBoss** is a web based system. Aiming for various cricket academies, the goal of this project is to make a web platform which will sort out the best list of players of a certain organisation. **CricBoss** is made for the cricket academies so that they can have the best possible team for their upcoming matches.
 It can sort out the best players of the three cricket fields - **Batsman, Bowlers**. The list results in a sorted list of players depending on their performance.
 
 So, one only needs to give the data of their corresponding players and they can easily find out their best playing team.
@@ -27,14 +27,23 @@ So, one only needs to give the data of their corresponding players and they can 
 ---
 
 # How it works
-**Cricboss** registers the academies and registers the players of that academy under its name. All of those data are stored in a database. The database is regularly updated when the player data is updated for regular match. CricBoss uses statistical analysis to find the following parameters - `Batting Average` and `Strike Rate` for batsman, and `Bowling Average`and `Rate`For bowlers. Basing on these parameters using statistical analysis a sorted list of the top batsman and bowlers are given.
+**Cricboss** registers the academies and registers the players of that academy under its name. All of those data are stored in a database. The database is regularly updated when the player data is updated for regular match. CricBoss uses statistical analysis to find the following parameters - `Batting Average` and `Strike Rate` for batsman, and `Bowling Average`and `Economy`For bowlers. Based on these parameters using statistical analysis a sorted list of the top batsman and bowlers are given.
 
 # Codes
 ## Front End
-For front end `Javascript`, `HTML` and `CSS` are used.
+For front end `Javascript`, `HTML` and `CSS` are used. `HandleBars` were used as rendering engine.
 ## Back End
-For back a relational database is created. `MySQL` is used for making the database and tables. All the records are stored in this database.
+`MySQL` is used for making the database and tables. All the records are stored in this database.
+![Preview](https://github.com/PulockDas/Player-Selection/blob/main/Screenshot(139).png)
 ![Relational Database](https://github.com/PulockDas/Player-Selection/blob/main/Screenshot%20(9).png)
+
+
+# How to run it(for educational purposes)
+1) Install NodeJS and npm 
+2) Install XAMPP
+3) Run MySQL and Apache from XAMPP and create database and tables(given in app.js)
+4) Navigate to your player-selection directory from terminal and type `npm start`
+5) Open a browser and go to port `5001`. Boom! 
 
 # Future Goals
 The website is a prototype. Future goal use to test it and host it in the server. Also update and build new versions
